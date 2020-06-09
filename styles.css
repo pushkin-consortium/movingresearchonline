@@ -1,25 +1,45 @@
+/* Global stylings */
 body {
     background-color: #4c5c68;
     font-family: 'Noto Sans TC', sans-serif;
     margin: 0;
 }
 
+a {
+    color: #1985a1;
+    text-decoration: none;
+}
+a:hover {
+    color: #ffb742;
+    text-decoration: underline;
+    transition: 0.3s;
+}
+
+/* Header, footer, and navbar */
 .float-head {
     position: fixed;
     top: 0;
     width: 100%;
 }
 
-.header a {
-    background-color: #282a2b;
+.header {
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #282a2b;
+    height: inherit;
+}
+.header-title {
+    max-width: 98vw;
+}
+.header a {
     display: flex;
     justify-content: center;
     align-items: center;
     color: #ffb742;
     padding: 15px;
-    font-size: 18px;
-    height: 60px;
+    font-size: 2.3vh;
 }
 .header a:hover {
     color: white;
@@ -38,44 +58,22 @@ nav {
     padding: 10px 0px;
     text-align: center;
 }
-
 nav ul {
     list-style: none;
+    font-size: 2.2vh;
     margin: 0;
     padding: 0;
 }
-
 nav li {
     display: inline;
     padding: 0px 20px;
 }
 
-a {
-    color: #1985a1;
-    text-decoration: none;
-}
-
-a:hover {
-    color: #ffb742;
-    text-decoration: underline;
-    transition: 0.3s;
-}
-
-.buffer {
-    height: 134px;
-}
-
+/* Main content stylings */
 .center {
     width: 80%;
     min-width: 250px;
     margin: auto;
-}
-
-#schedule, #team {
-    position: relative;
-    float: left;
-    visibility: hidden;
-    top: -149px
 }
 
 .card {
@@ -119,15 +117,12 @@ a:hover {
 .person {
     clear: left;
 }
-
 .team-image {
     float: left;
     width: 250px;
     border-radius: 10px;
     margin: 0px 15px 15px 0px;
-
 }
-
 .team-text {
     margin: 0;
 }
@@ -138,41 +133,43 @@ a:hover {
     margin: 0px;
 }
 
-@media only screen and (max-width: 499px) {
-    .header {
-        font-size: 12px;
-    }
-    .person {
-        text-align: center;
-    }
-    .team-image {
-        float: none;
-        width: 200px;
-        margin: 0;
-    }
+
+/* Responsive stylings */
+.buffer {
+    /* Heights to accomodate header and anchor spacing for mobile devices */
+    height: 16vh;
+}
+#schedule, #team {
+    position: relative;
+    float: left;
+    visibility: hidden;
+    top: -16.9vh;
 }
 
-@media only screen and (max-width: 600px) {
-    .person {
-        text-align: center;
+@media only screen and (orientation: landscape) and (min-width: 879px) {
+    /* Secures header and anchor spacing for desktop */
+    .buffer {
+        height: 13.3vh;
     }
-    .team-image {
-        float: none;
-        width: 200px;
-        margin: 0;
+    #schedule, #team {
+        top: -15.3vh;
     }
 }
 
 @media only screen and (orientation: portrait) {
-    .header {
-        font-size: 12px;
+    .card, .session {
+        padding: 30px;
     }
+    nav {
+        font-size: 24px;
+    }
+    /* Updates layout for each person in Team when smaller width*/
     .person {
         text-align: center;
     }
     .team-image {
         float: none;
-        width: 80%;
+        width: 95%;
         margin: 0;
     }
 }
