@@ -143,7 +143,7 @@ nav li {
     position: relative;
     float: left;
     visibility: hidden;
-    top: -16.9vh;
+    top: -16.8vh;
 }
 
 @media only screen and (orientation: landscape) and (min-width: 879px) {
@@ -152,7 +152,7 @@ nav li {
         height: 13.3vh;
     }
     #schedule, #team {
-        top: -15.3vh;
+        top: -15.4vh;
     }
 }
 
