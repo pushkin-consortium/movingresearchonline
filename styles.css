@@ -6,11 +6,11 @@ body {
 }
 
 a {
-    color: #1985a1;
+    color: #00468c;
     text-decoration: none;
 }
 a:hover {
-    color: #ffb742;
+    color: #a14600;
     text-decoration: underline;
     transition: 0.3s;
 }
@@ -68,6 +68,15 @@ nav li {
     display: inline;
     padding: 0px 20px;
 }
+nav a {
+    color: #1985a1;
+    text-decoration: none;
+}
+nav a:hover {
+    color: #ffb742;
+    text-decoration: underline;
+    transition: 0.3s;
+}
 
 /* Main content stylings */
 .center {
@@ -77,7 +86,7 @@ nav li {
 }
 
 .card {
-    background-color: #46494c;
+    background-color: #99a3ad;
     padding: 15px;
     margin: 15px 0px;
     border-radius: 10px;
@@ -85,13 +94,14 @@ nav li {
     overflow: hidden;
 }
 .card-title {
-    color: #c1d6e0;
+    color: #823800;
     font-size: 18px;
+    font-weight: 900;
     text-align: center;
     margin-bottom: 10px;
 }
 .card-subtitle {
-    color: #ffb742;
+    color: #a14600;
     font-weight: 900;
 }
 
@@ -152,7 +162,7 @@ nav li {
         height: 13.3vh;
     }
     #schedule, #team {
-        top: -15.4vh;
+        top: -15.3vh;
     }
 }
 
