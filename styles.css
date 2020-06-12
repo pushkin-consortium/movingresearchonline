@@ -68,11 +68,11 @@ nav li {
     display: inline;
     padding: 0px 20px;
 }
-nav a {
+.lighter-link a, nav a {
     color: #1985a1;
     text-decoration: none;
 }
-nav a:hover {
+.lighter-link a:hover, nav a:hover {
     color: #ffb742;
     text-decoration: underline;
     transition: 0.3s;
@@ -113,7 +113,7 @@ nav a:hover {
     border-style: solid;
     border-width: 2px;
     padding: 10px;
-    max-width: 300px;
+    width: 300px;
     margin: auto;
 }
 .register {
@@ -132,6 +132,10 @@ nav a:hover {
 .register:hover {
     background-color: #a14600;
     cursor: pointer;
+}
+.smaller {
+    font-weight: normal;
+    font-size: 14px;
 }
 
 .session {
@@ -184,6 +188,20 @@ nav a:hover {
 }
 
 @media only screen and (orientation: portrait) {
+    .workshop {
+        width: 80%;
+        font-size: 3rem;
+        margin-top: 40px;
+    }
+    .register {
+        font-size: 3rem;
+        padding: 10px 20px;
+        margin: 20px;
+    }
+    .smaller {
+        font-weight: normal;
+        font-size: 1em;
+    }
     .card, .session {
         padding: 30px;
     }
