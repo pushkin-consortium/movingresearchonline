@@ -116,6 +116,23 @@ nav a:hover {
     max-width: 300px;
     margin: auto;
 }
+.register {
+    background-color: #00468c;
+    color: white;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 18px;
+    font-weight: normal;
+    border-style: solid;
+    border-color: black;
+    border-radius: 15px;
+    padding: 5px 15px;
+    margin: 10px 0 0 0;
+    transition: 0.3s;
+}
+.register:hover {
+    background-color: #a14600;
+    cursor: pointer;
+}
 
 .session {
     border-color: #282a2b;

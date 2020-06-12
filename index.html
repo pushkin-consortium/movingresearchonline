@@ -52,6 +52,26 @@
                     June 30th-July 30th, 2020<br />
                     Where: Online (TBA)<br />
                     Cost: Free<br />
+                    <!-- Eventbrite -->
+                    <noscript><a href="https://online-experiments-workshop.eventbrite.com" rel="noopener noreferrer"
+                            target="_blank"></noscript>
+                    <button class="register" id="eventbrite-widget-modal-trigger-109344544476"
+                        type="button">Register</button>
+                    <noscript></a>Link to register</noscript>
+                    <script src="https://www.eventbrite.com/static/widgets/eb_widgets.js"></script>
+                    <script type="text/javascript">
+                        var exampleCallback = function () {
+                            console.log('Order complete!');
+                        };
+
+                        window.EBWidgets.createWidget({
+                            widgetType: 'checkout',
+                            eventId: '109344544476',
+                            modal: true,
+                            modalTriggerElementId: 'eventbrite-widget-modal-trigger-109344544476',
+                            onOrderComplete: exampleCallback
+                        });
+                    </script>
                 </div>
             </strong>
         </div>
