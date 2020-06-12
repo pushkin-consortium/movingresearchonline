@@ -190,11 +190,11 @@ nav li {
 @media only screen and (orientation: portrait) {
     .workshop {
         width: 80%;
-        font-size: 3rem;
+        font-size: 3vw;
         margin-top: 40px;
     }
     .register {
-        font-size: 3rem;
+        font-size: 3vw;
         padding: 10px 20px;
         margin: 20px;
     }
