@@ -27,7 +27,7 @@ a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #282a2b;
+    background-color: #99a3ad;
     height: inherit;
 }
 .header-title {
@@ -167,11 +167,15 @@ nav li {
     margin: 0px;
 }
 
-
 /* Responsive stylings */
 .buffer {
     /* Heights to accomodate header and anchor spacing for mobile devices */
-    height: 16vh;
+    height: 12.3vh;
+}
+.header-image {
+    height: 8vh;
+    margin: 0px;
+    padding: 0px;
 }
 #schedule, #team {
     position: relative;
@@ -183,7 +187,10 @@ nav li {
 @media only screen and (orientation: landscape) and (min-width: 879px) {
     /* Secures header and anchor spacing for desktop */
     .buffer {
-        height: 13.3vh;
+        height: 16.3vh;
+    }
+    .header-image {
+        height: 10vh;
     }
     #schedule, #team {
         top: -15.3vh;
