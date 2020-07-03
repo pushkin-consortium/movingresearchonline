@@ -6,8 +6,8 @@ body {
 }
 
 a {
-    color: #00468c;
-    text-decoration: none;
+    color: #080061;
+    overflow-wrap: break-word; word-wrap: break-word; -ms-hyphens: auto; -moz-hyphens: auto; -webkit-hyphens: auto; hyphens: auto;
 }
 a:hover {
     color: #a14600;
@@ -29,9 +29,6 @@ a:hover {
     align-items: center;
     background-color: #99a3ad;
     height: inherit;
-}
-.header-title {
-    max-width: 98vw;
 }
 .header a {
     display: flex;
@@ -86,22 +83,23 @@ nav li {
 }
 
 .card {
-    background-color: #99a3ad;
+    background-color: #B9C2C6;
     padding: 15px;
     margin: 15px 0px;
     border-radius: 10px;
     height: inherit;
     overflow: hidden;
 }
-.card-title {
+h2 {
     color: #823800;
-    font-size: 18px;
+    font-size: 1.5rem;
     font-weight: 900;
     text-align: center;
-    margin-bottom: 10px;
+    margin: 0 0 10px 0;
+    padding: 0;
 }
 .card-subtitle {
-    color: #a14600;
+    color: #823800;
     font-weight: 900;
 }
 
@@ -181,7 +179,7 @@ nav li {
     position: relative;
     float: left;
     visibility: hidden;
-    top: -16.8vh;
+    top: -12.3vh;
 }
 
 @media only screen and (orientation: landscape) and (min-width: 879px) {
@@ -193,7 +191,7 @@ nav li {
         height: 10vh;
     }
     #schedule, #team {
-        top: -15.3vh;
+        top: -18vh;
     }
 }
 
