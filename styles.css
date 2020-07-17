@@ -103,6 +103,11 @@ h2 {
     font-weight: 900;
 }
 
+.notice {
+    background-color: #ffeb91;
+    color: black;
+}
+
 .workshop {
     border-color: #000;
     background-color: #282a2b;
