@@ -1,0 +1,59 @@
+<h1 id="compatibility-for-pushkin-sitetemplate-default-v1-2-0-with-pushkin-cli-v3-0-0">Compatibility for pushkin-sitetemplate-default v1.2.0 with pushkin-cli v3.0.0</h1>
+<p>In <code>pushkin-sitetemplate-default</code> v.2.0.0, we made some changes to the configuration files to improve security and allow for future upgrades. v3+ of the CLI assumes these changes. To use the new CLI and to benefit from these changes, please make the following quick adjustments:</p>
+<h2 id="a-">A.</h2>
+<ol>
+<li><p>Make a temporary copy of <code>pushkin/front-end/src/config.js</code> with the [New version].</p>
+</li>
+<li><p>Replace <code>pushkin/front-end/src/config.js</code> with the [New version]</p>
+</li>
+<li><p>Make a temporary copy of <code>pushkin.yaml</code>.</p>
+</li>
+<li><p>Replace <code>pushkin.yaml</code> with [New Version]</p>
+</li>
+<li><p>Restore any customization you had made to <code>pushkin.yaml</code> by comparing your temporary copy with the new version. Most likely, the only customization you would have done is changing <code>DockerHubID</code>.</p>
+</li>
+<li><p>Look at your temporary copy of <code>config.js</code>. You will see that the settings in <code>config.js</code> have all moved to the <code>config</code> section of <code>pushkin.yaml</code>. Please edit <code>pushkin.yaml</code> to reflect any such customization. For instance, if you changed your email from <code>me@mydomain.com</code> to an actual email address, update it.</p>
+</li>
+</ol>
+<h2 id="b-">B.</h2>
+<p>For each experiment:</p>
+<ul>
+<li>Open <code>experiments/[YOUR EXPERIMENT]/web page/src/index.js</code>. On line 40, you should see:</li>
+</ul>
+<pre><code>await pushkin.<span class="hljs-built_in">connect</span>(<span class="hljs-string">'/api/[YOUR EXPERIMENT]'</span>);
+</code></pre><p>Replace this with </p>
+<pre><code><span class="hljs-selector-tag">await</span> <span class="hljs-selector-tag">pushkin</span><span class="hljs-selector-class">.connect</span>(<span class="hljs-selector-tag">this</span><span class="hljs-selector-class">.props</span><span class="hljs-selector-class">.api</span>);
+</code></pre><p>and save.</p>
+<ul>
+<li>Go to <code>[path-to-experiment]/api controllers/</code></li>
+</ul>
+<p>Run:</p>
+<pre><code>$ yarn upgrade pushkin-api <span class="hljs-comment">--latest</span>
+</code></pre><ul>
+<li>Open <code>[path-to-experiment]/worker/start.sh</code>. Replace everything with:</li>
+</ul>
+<pre><code><span class="hljs-meta">#!/bin/bash</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"Worker started. Waiting for rabbitMQ"</span>
+AMQP_DOMAIN=$(<span class="hljs-built_in">echo</span> <span class="hljs-variable">$AMQP_ADDRESS</span> | sed <span class="hljs-_">-e</span> <span class="hljs-string">"s/[^/]*\/\/\([^@]*@\)\?\([^:/]*\).*/\2/"</span>)
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"Waiting for port 5672 on <span class="hljs-variable">$AMQP_DOMAIN</span>"</span>
+<span class="hljs-keyword">while</span> ! nc -z <span class="hljs-variable">$AMQP_DOMAIN</span> 5672; <span class="hljs-keyword">do</span> sleep 3; <span class="hljs-keyword">done</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"Rabbitmq loaded"</span>
+node index.js
+</code></pre><h2 id="c-">C.</h2>
+<ol>
+<li>Open <code>pushkin/front-end/src/components/Quizzes/TakQuiz.js</code>. Add a new line at the very top:</li>
+</ol>
+<pre><code><span class="hljs-keyword">import</span> { CONFIG } <span class="hljs-keyword">from</span> <span class="hljs-string">'../../config'</span>;
+</code></pre><p>Then, on line 24, you should see:</p>
+<pre><code>&lt;QuizComponent {..<span class="hljs-selector-class">.this</span><span class="hljs-selector-class">.props</span>} /&gt;
+</code></pre><p>replace this with</p>
+<pre><code>        &lt;QuizComponent {..<span class="hljs-selector-class">.this</span><span class="hljs-selector-class">.props</span>} api={CONFIG<span class="hljs-selector-class">.apiEndpoint</span><span class="hljs-selector-class">.concat</span>(<span class="hljs-string">'/'</span>).concat(match<span class="hljs-selector-class">.params</span><span class="hljs-selector-class">.quizName</span>)} /&gt;
+</code></pre><p>and save.</p>
+<ol>
+<li>Go to <code>pushkin/api</code>. Run:</li>
+</ol>
+<pre><code>$ yarn upgrade pushkin-api <span class="hljs-comment">--latest</span>
+</code></pre><h2 id="d-">D.</h2>
+<ol>
+<li>Run <code>$ pushkin setup-transaction-db</code></li>
+</ol>
